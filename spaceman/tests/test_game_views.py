@@ -69,7 +69,10 @@ class GameApiViewTests( TestCase ):
 
 
     ### GET solution view
-    # TODO: Add tests for Getting a game's solution
-    # HINT: remember the `setUp` fixture that is in this test class, 
-    #   it constructs things that might be useful
-
+    def get_solution( self ):
+        game = Game.objects.get( pk = game_id )
+        if game_id is None:
+            return Response( status = status.HTTP_404_NOT_FOUND )
+        else:
+            return game_solution
+   
